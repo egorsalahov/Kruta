@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Kruta.GUI/Kruta.GUI.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="Kruta.Server/Kruta.Server.csproj" />
+</Solution>
