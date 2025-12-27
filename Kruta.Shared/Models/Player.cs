@@ -1,4 +1,8 @@
 ﻿using Kruta.Shared.Models.Cards;
+using Kruta.Shared.Models.Cards.Familiar;
+using Kruta.Shared.Models.Interfaces;
+using Kruta.Shared.Models.Tokens.JKSToken;
+using Kruta.Shared.Services.Static;
 using System.Collections.Generic;
 
 namespace Kruta.Shared.Models
@@ -11,14 +15,21 @@ namespace Kruta.Shared.Models
         public int CurrentHealth { get; set; }
         public int PowerGainedThisTurn { get; set; } // Мощь за текущий ход
 
-        // Карты, которые видят все
-        public List<Card> Permanents { get; set; } = new List<Card>();
-        public Card InitialFamiliar { get; set; } // Купленный Фамильяр
+        public WizardPropertyToken WizardPropertyToken { get; set; } //ЖКС
+        public FamiliarCard Familiar { get; set; } //Фамильяр
+
+        // Карты, которые видят все (тут же будут ЖКС и Фамильяр)
+        public List<IOpenedCard> PublicCards { get; set; } = new();
 
         // Закрытое состояние (нужно для сервера/логики, но не для GameStateMessage)
-        public List<Card> Hand { get; set; } = new List<Card>();
-        public List<Card> Deck { get; set; } = new List<Card>();
-        public List<Card> Discard { get; set; } = new List<Card>();
-        public List<Card> PlayedCardsThisTurn { get; set; } = new List<Card>();
+        public List<ICard> Hand { get; set; } = new ();
+        public List<ICard> PlayerDeck { get; set; } = new ();
+        public List<ICard> Discard { get; set; } = new ();
+        public List<ICard> PlayedCardsThisTurn { get; set; } = new();
+
+        public void ShuffleDeck()
+        {
+            PlayerDeck = PlayerDeck.ShuffleCustom().ToList();
+        }
     }
 }

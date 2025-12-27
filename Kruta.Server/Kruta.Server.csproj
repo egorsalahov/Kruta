@@ -15,4 +15,10 @@
     <ProjectReference Include="..\Kruta.Shared\Kruta.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="settingsForServer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

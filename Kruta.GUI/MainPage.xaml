@@ -1,7 +1,7 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Kruta.GUI.ViewModels"
-             xmlns:models="clr-namespace:Kruta.GUI.Models.Cards"
+             xmlns:models="clr-namespace:Kruta.GUI2.Models.Cards"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="Kruta.GUI.MainPage"
              Title="Крутагидон: Магия и Беспредел">
